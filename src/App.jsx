@@ -1,6 +1,7 @@
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import CircleType from "circletype"; // If it’s a default export
+import RotatingBox from "./components/3D/rotatingBox";
 
 // TODO: Use Framer-Motion to animate the expanding of columns in Project Table more effectively.(1)
 
@@ -39,6 +40,9 @@ function App() {
           <h1>Maya Vika</h1>
           <h1>DJ Pitch</h1>
           <h1>Angel Rocket</h1>
+        </div>
+        <div className="h-full flex items-center justify-center">
+          <RotatingBox />
         </div>
 
         <div className="itemsRight font-RomanaRomanBold text-[50px] flex flex-col items-end justify-end [&>*]:cursor-pointer pr-2">
