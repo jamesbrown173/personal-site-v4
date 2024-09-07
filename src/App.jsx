@@ -1,9 +1,18 @@
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import CircleType from "circletype"; // If it’s a default export
 
-const ProjectItemRow = ({ projectName, projectType, projectLocation }) => {
+// TODO: Use Framer-Motion to animate the expanding of columns in Project Table more effectively.(1)
+
+// ----------------------------------------------------- Project Row Item ----- //
+const ProjectItemRow = ({
+  projectName,
+  projectType,
+  projectLocation,
+  projectUrl,
+}) => {
   return (
-    <div className="projectItemRow flex w-full items-end border-b-[0.1px] border-b-[#939393]">
+    <div className="projectItemRow flex w-full items-end  border-b-[0.1px] border-b-[#939393] cursor-pointer hover:text-[#D5D5D5] transition-all hover:ease-in-out duration-1000 ">
       <div className="w-[50%]">
         <h1 className="font-RomanaRomanNormal text-[40px]">{projectName}</h1>
       </div>
@@ -17,38 +26,33 @@ const ProjectItemRow = ({ projectName, projectType, projectLocation }) => {
   );
 };
 
+// ----------------------------------------------------------------- App ----- //
 function App() {
   return (
     <div className=" max-w-[1400px] flex flex-col w-screen relative justify-center items-center">
       <section className="hero w-full h-[900px] flex justify-between sticky top-0 z-0 bg-top bg-cover bg-no-repeat bg-[url('./images/background-test-1.png')]">
         <div className="itemsLeft font-RomanaRomanBold text-[50px] [&>*]:cursor-pointer pl-2">
-          <h1>object blue</h1>
-          <h1>aya</h1>
-          <h1>b2b BFFT</h1>
+          <h1>james brown</h1>
+          <h1>developer / designer</h1>
+          <h1>framer-motion</h1>
           <h1>ex.sses</h1>
           <h1>Maya Vika</h1>
           <h1>DJ Pitch</h1>
           <h1>Angel Rocket</h1>
         </div>
-        <div className="circle bg-red-600 h-[200px] w-[200px] flex items-center justify-center rounded-full relative self-center">
-          <div className="circleText font-serif font-thin italic w-full h-full absolute">
-            {" "}
-            a b c d e f g h i{" "}
-          </div>
-        </div>
+
         <div className="itemsRight font-RomanaRomanBold text-[50px] flex flex-col items-end justify-end [&>*]:cursor-pointer pr-2">
-          <h1>DJ Python</h1>
-          <h1>DJ Corpmane</h1>
+          <h1>development process</h1>
+          <h1>projects</h1>
           <h1>munni</h1>
-          <h1>Madjestic</h1>
-          <h1>Kasual</h1>
-          <h1>Rish</h1>
-          <h1>AF85</h1>
-          <h1>Ian Kim Judd</h1>
+          <h1>about me</h1>
+          <h1>contact</h1>
+          <h1>about me</h1>
+          <h1>contact</h1>
         </div>
       </section>
 
-      <section className="projects w-[99%] h-[900px] flex items-center justify-center bg-slate-800 p-6 rounded-t-lg z-10">
+      <section className="projects w-[99%] h-[900px] flex items-center justify-center bg-slate-800 p-6 rounded-t-lg z-10 sticky top-0">
         <div className="grid grid-rows-10 w-full h-full">
           <div className="projectItemRow rowItem0 flex w-full items-end border-b-[0.1px] border-b-[#939393]">
             <div className=" flex items-center justify-center gap-2 p-2">
@@ -73,24 +77,46 @@ function App() {
             projectName="interior-design-project"
             projectType="design-development"
             projectLocation="hoc-chi-minh-city"
+            projectUrl="https://www.google.com"
           />
           <ProjectItemRow
             projectName="sensa-project"
             projectType="development-framer"
             projectLocation="marketing-agency"
+            projectUrl="https://www.google.com"
           />
           <ProjectItemRow
             projectName="zweet-project"
             projectType="design-development"
             projectLocation="drinks-beverage-ui"
+            projectUrl="https://www.google.com"
           />
           <ProjectItemRow
             projectName="canal-street-project"
             projectType="development"
             projectLocation="marketing-advertising"
+            projectUrl="https://www.google.com"
           />
-          <ProjectItemRow projectName=" " projectType=" " projectLocation=" " />
-          <ProjectItemRow projectName=" " projectType=" " projectLocation=" " />
+          <ProjectItemRow
+            projectName=" "
+            projectType=" "
+            projectLocation=" "
+            projectUrl="https://www.google.com"
+          />
+          <ProjectItemRow
+            projectName=" "
+            projectType=" "
+            projectLocation=" "
+            projectUrl="https://www.google.com"
+          />
+        </div>
+      </section>
+      <section className="contact w-[99%] h-[30px] flex items-start  justify-evenly z-10 bg-slate-800">
+        <div className="aboutMe w-[45%] bg-[#F7F7F7] p-6 rounded-t-lg">
+          <h1>about me</h1>
+        </div>
+        <div className="aboutMe w-[45%] bg-[#F7F7F7] p-6 rounded-t-lg">
+          <h1> contact</h1>
         </div>
       </section>
     </div>
