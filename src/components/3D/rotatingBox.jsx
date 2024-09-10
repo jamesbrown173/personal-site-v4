@@ -1,12 +1,11 @@
 import React, { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const RotatingBox = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
-    // So if I wanted to download a 3D model from online, then use it in this scene how would I do it?
-
     const cubeMaterials = [
       new THREE.MeshBasicMaterial({ color: 0x1f2226 }), // White side
       new THREE.MeshBasicMaterial({ color: 0x515355 }), // #515355
@@ -50,12 +49,35 @@ const RotatingBox = () => {
     });
     renderer.setSize(sizes.width, sizes.height);
 
-    // Animation loop
-    const tick = () => {
-      cube1.rotation.y += 0.01;
-      cube1.rotation.x += 0.01;
+    // Cursor
+    const cursor = {
+      x: 0,
+      y: 0,
+    };
 
+    window.addEventListener("mousemove", (event) => {
+      cursor.x = event.clientX / sizes.width - 0.5;
+      cursor.y = -(event.clientY / sizes.height - 0.5);
+      console.log(cursor.x, cursor.y);
+    });
+
+    // OrbitControls
+    const controls = new OrbitControls(camera, canvas);
+    controls.enableDamping = true; // Enable damping for smoother camera movements
+
+    // Animate
+    const clock = new THREE.Clock();
+
+    const tick = () => {
+      const elapsedTime = clock.getElapsedTime();
+
+      // Update controls (required for damping)
+      controls.update();
+
+      // Render
       renderer.render(scene, camera);
+
+      // Call tick again on the next frame
       window.requestAnimationFrame(tick);
     };
 
