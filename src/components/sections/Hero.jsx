@@ -16,7 +16,10 @@ const Hero = () => {
         <RotatingBox />
       </div>
 
-      <div className="itemsRight font-RomanaRomanNormal gap-5 text-[30px] flex flex-row items-start justify-start [&>*]:cursor-pointer pr-2">
+      <div className="itemsRight font-RomanaRomanBold text-[60px] flex flex-col items-start justify-end [&>*]:cursor-pointer pr-2">
+        <h1>services</h1>
+        <h1>works</h1>
+        <h1>contact</h1>
         <h1>services</h1>
         <h1>works</h1>
         <h1>contact</h1>

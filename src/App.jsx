@@ -18,13 +18,7 @@ function App() {
     <div className=" max-w-[1400px] flex flex-col w-screen relative justify-center items-center">
       <Hero />
       {/* Selected Works */}
-      <section className="projects w-[99%] h-[100px] flex items-center bg-[#1E2A3B] p-6 rounded-t-xl z-10 sticky top-0">
-        <div className="w-full border-b-2 border-b-[#4D545E]">
-          <h1 className="text-[45px] font-RomanaRomanNormal">
-            Selected Works{" "}
-          </h1>
-        </div>
-      </section>
+
       <ProjectsTable />
     </div>
   );
